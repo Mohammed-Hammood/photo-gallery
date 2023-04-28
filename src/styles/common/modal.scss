@@ -1,0 +1,307 @@
+@import './mixins.scss';
+
+
+@keyframes Modal {
+    from {
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.1);
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+@keyframes TranslateY {
+    from {
+        transform: translateY(-200px);
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 110;
+    animation: Modal 500ms linear 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .darkModal,
+    .fullScreen,
+    .maxWidth500,
+    .maxWidth600,
+    .maxWidth600,
+    .maxWidth700,
+    .maxWidth800,
+    .maxWidth900 {
+        background-color: white;
+        box-shadow: 0 0 50px rgb(255, 255, 255);
+        @include CENTER_H;
+        flex-direction: column;
+        animation: TranslateY 300ms linear 1;
+        width: 100%;
+        border-radius: 10px;
+        margin:5px;
+        overflow:hidden;
+        .header {
+            min-height: 30px;
+            padding: 0 10px;
+            border-bottom: 1px solid lightgray;
+            color: black;
+            display: flex;
+            animation:none;
+            justify-content: space-between;
+
+            div {
+                @include CENTER_V;
+                gap: 10px;
+
+                .closeButton {
+                    background-color: red;
+                    border-radius: 50%;
+                    padding: 5px;
+
+                    svg path {
+                        fill: white;
+                        
+                    }
+                }
+
+                button {
+                    border: none;
+                    outline: none;
+                    padding: 10px;
+                    cursor: pointer;
+                    background: transparent;
+                    @include CENTER_HV;
+
+                    &:hover {
+                        svg {
+                            opacity: 1;
+                            transform: scale(1.5);
+                            transition: 0.5s;
+                        }
+                    }
+
+                    &:active {
+                        transform: translate3d(1px, 1px, 1px);
+                    }
+
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                        opacity: 0.8;
+                    }
+                }
+
+                .title {
+                    padding: 10px 0;
+                    font-weight: bold;
+                    cursor: default;
+                }
+            }
+        }
+
+
+
+        .body {
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            color: black;
+
+            .messages {
+                padding: 10px;
+                cursor: default;
+                font-weight: 600;
+                padding: 10px;
+
+                &.warning {
+                    background: rgb(255, 255, 132);
+                    color: #d60000;
+                    cursor: zoom-out;
+                }
+            }
+            .container {
+                padding:10px;
+            }
+            form, .container {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
+
+                .section {
+                    display: flex;
+                    flex-direction: column;
+
+                    input:focus-visible,
+                    textarea:focus-visible,
+                    select:focus {
+                        outline: 1px solid var(--specialColor1);
+                    }
+
+                    input,
+                    textarea,
+                    select {
+                        border-radius: 5px;
+                        padding: 10px;
+                        border: none;
+                        width: 100%;
+                        outline: 1px solid var(--borderColor);
+                    }
+
+                    textarea {
+                        resize: vertical;
+                        max-height: 300px;
+                        min-height: 50px;
+                    }
+
+                    select {
+                        display: flex;
+                        padding: 5px;
+                        justify-content: center;
+                        cursor: pointer;
+                        justify-items: center;
+                        color:inherit;
+                        background-color: inherit;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .buttons, .buttons-container, .buttons-wrapper {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                button {
+                    background-color: silver;
+                    @include CENTER_HV;
+                    border: none;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    flex: 1 1 50%;
+                    border-radius: 2px;
+
+                    svg {
+                        width: 14px;
+                    }
+                }
+
+                .disabled,
+                .disabled:hover,
+                .disabled:active {
+                    background-color: silver;
+                    opacity: 0.5;
+                    box-shadow: none;
+                    transform: none;
+                    cursor: not-allowed;
+                    color: black;
+                }
+                .success {
+                    background-color: green;
+                    color:white;
+                }
+                
+                .danger {
+                    background-color: red;
+                    color:white;
+                }
+                .warning {
+                    background-color: orange;
+                }
+                .primary {
+                    background-color: var(--specialColor1);
+                    color:white;
+                }
+
+                button:hover {
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                }
+
+                button:active {
+                    transform: translate3D(1px, 1px, 1px);
+                }
+            }
+
+        }
+
+
+    }
+
+    .maxWidth900 {
+        max-width: 900px;
+    }
+    .maxWidth800 {
+        max-width: 800px;
+    }
+    .maxWidth700 {
+        max-width: 700px;
+    }
+    .maxWidth600 {
+        max-width: 600px;
+    }
+    .maxWidth500 {
+        max-width: 500px;
+    }
+    .darkMode {
+        background-color: #3e3e3e;
+        color:white;
+        button, select, .title, .length_counter  {
+            color:white;
+        }
+        svg:not(#flag-icons-ru, #flag-icons-gb, #flag-icons-iq){
+            path {
+                fill:white;
+            }
+        }
+        form {
+            color:white;
+            .length_counter, select {
+                color:white;
+            }
+            input:not([type="range"]),  textarea {
+                color:black;
+                background:#d3d3d3;
+                outline:1px solid white;
+            }
+        }
+        
+    }
+    .fullScreen {
+        max-width: auto;
+        border-radius: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin:0;
+        .buttons, .buttons-container, .buttons-wrapper {
+            position:fixed;
+            padding:10px; 
+            bottom:0;
+            left:0;
+            width:100%;
+            button {
+                max-width: 200px;
+            }
+        }
+    }
+}

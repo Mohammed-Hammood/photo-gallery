@@ -1,0 +1,97 @@
+:root {
+    --centerContentMaxWidth: 550px;
+    --cardsMaxWidth: 750px;
+    --cardMaxWidth: 750px;
+    --specialColor1: #477fea;
+    --specialColorHover1: #1359fe;
+    --specialColor2: #f4f4f4;
+    --specialColorHover2: #e1e1e1;
+    --specialColor3: ;
+    --shadowColor: rgba(0, 0, 0, 0.5);
+    --warningColor: #ffe30082;
+    --borderColor: rgba(0, 0, 0, 0.1);
+    --fontVeryLarge: 22px;
+    --fontLarge: 18px;
+    --fontNormal: 14px;
+    --fontSmall: 12px;
+    --fontSize40: 40px;
+    --fontSize39: 39px;
+    --fontSize38: 38px;
+    --fontSize37: 37px;
+    --fontSize36: 36px;
+    --fontSize35: 35px;
+    --fontSize34: 34px;
+    --fontSize33: 33px;
+    --fontSize32: 32px;
+    --fontSize31: 31px;
+    --fontSize30: 30px;
+    --fontSize29: 29px;
+    --fontSize28: 28px;
+    --fontSize27: 27px;
+    --fontSize26: 26px;
+    --fontSize25: 25px;
+    --fontSize24: 24px;
+    --fontSize23: 23px;
+    --fontSize22: 22px;
+    --fontSize21: 21px;
+    --fontSize20: 20px;
+    --fontSize19: 19px;
+    --fontSize18: 18px;
+    --fontSize17: 17px;
+    --fontSize16: 16px;
+    --fontSize15: 15px;
+    --fontSize14: 14px;
+    --fontSize13: 13px;
+    --fontSize12: 12px;
+    --fontSize11: 11px;
+    --fontSize10: 10px;
+}
+
+@media screen and (max-width:600px) {
+    :root {
+        --fontVeryLarge: 20px;
+        --fontNormal: 13px;
+        --fontLarge: 16px;
+        --fontSmall: 11px;
+        --fontSize40: 48px;
+        --fontSize39: 37px;
+        --fontSize38: 36px;
+        --fontSize37: 35px;
+        --fontSize36: 34px;
+        --fontSize35: 33px;
+        --fontSize34: 32px;
+        --fontSize33: 31px;
+        --fontSize32: 30px;
+        --fontSize31: 29px;
+        --fontSize30: 28px;
+        --fontSize29: 27px;
+        --fontSize28: 26px;
+        --fontSize27: 25px;
+        --fontSize26: 24px;
+        --fontSize25: 23px;
+        --fontSize24: 22px;
+        --fontSize23: 21px;
+        --fontSize22: 20px;
+        --fontSize21: 19px;
+        --fontSize20: 18px;
+        --fontSize19: 17px;
+        --fontSize18: 16px;
+        --fontSize17: 15px;
+        --fontSize16: 14px;
+        --fontSize15: 13px;
+        --fontSize14: 12px;
+        --fontSize13: 11px;
+        --fontSize12: 10px;
+        --fontSize11: 9px;
+        --fontSize10: 8px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    :root {
+        --fontVeryLarge: 18px;
+        --fontNormal: 12px;
+        --fontLarge: 14px;
+        --fontSmall: 10px;
+    }
+}

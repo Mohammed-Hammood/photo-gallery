@@ -1,0 +1,391 @@
+@use "variables" as variable;
+@use "mixins" as mixin;
+
+// this is for font Noto Sans Arabic
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@700;900&display=swap');
+
+
+#root {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  min-height: calc(100vh - 50px);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.icon14, .icon {
+  width: 14px;
+  height: 14px;
+}
+svg {
+  width:14px;
+}
+.icon15 {
+  width: 15px;
+  height: 15px;
+}
+
+.icon13 {
+  width: 13px;
+  height: 13px;
+}
+
+@media screen and (max-width:750px) {
+  .icon14 {
+    width: 13px;
+    height: 13px;
+  }
+
+  .icon15 {
+    width: 14px;
+    height: 14px;
+  }
+
+  .icon13 {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+
+@media screen and (max-width:400px) {
+  .icon14 {
+    width: 12px;
+    height: 12px;
+  }
+
+  .icon15 {
+    width: 13px;
+    height: 13px;
+  }
+
+  .icon13 {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.red {
+  color: red;
+}
+
+.bgBlue {
+  background-color: blue;
+}
+
+.bgDarkBlue {
+  background-color: darkblue;
+}
+
+.bgBlack {
+  background-color: black;
+}
+
+.bgWhite {
+  background-color: white;
+}
+
+.bgDark {
+  background-color: rgb(46, 46, 46);
+}
+
+.bgDarkGray {
+  background-color: darkgray;
+}
+
+.bgDarkRed {
+  background-color: darkred;
+}
+
+.bgLightBlue {
+  background-color: lightblue;
+}
+
+.bgViolet {
+  background-color: violet;
+}
+
+.bgLightSlateGray {
+  background-color: lightslategray;
+}
+
+.bgLightSeaGreen {
+  background-color: lightseagreen;
+}
+
+.bgNavy {
+  background-color: navy;
+}
+
+.bgSkyBlue {
+  background-color: skyblue;
+}
+
+.bgMidnightBlue {
+  background-color: midnightblue;
+}
+
+.bgGainsboro {
+  background-color: gainsboro;
+}
+
+.bgDarkSlateBlue {
+  background-color: darkslateblue;
+}
+
+.bgGhostWhite {
+  background-color: ghostwhite;
+}
+
+.bgDimGray {
+  background-color: dimgray;
+}
+
+.bgTeal {
+  background-color: teal;
+}
+
+.bgDarkSlateGray {
+  background-color: DarkSlateGray;
+}
+
+.bgDarkViolet {
+  background-color: darkviolet;
+}
+
+.bgCyan {
+  background-color: cyan;
+}
+
+.bgDarkCyan {
+  background-color: darkcyan;
+}
+
+.bgYellow {
+  background-color: yellow;
+}
+
+.bgDarkGreen {
+  background-color: darkgreen;
+}
+
+.bgRed {
+  background-color: red;
+}
+
+.bgGreen {
+  background-color: green;
+}
+
+.bgGray {
+  background-color: gray;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.blueviolet {
+  color: blueviolet;
+}
+
+.darkblue {
+  color: darkblue;
+}
+
+.darkred {
+  color: darkred;
+}
+
+.crimson {
+  color: crimson;
+}
+
+.brown {
+  color: brown;
+}
+
+.green {
+  color: green;
+}
+
+.darkgreen {
+  color: darkgreen;
+}
+
+.deeppink {
+  color: deeppink;
+}
+
+.chocolate {
+  color: chocolate;
+}
+
+.cyan {
+  color: cyan;
+}
+
+.deepskyblue {
+  color: deepskyblue;
+}
+
+.dimgray {
+  color: dimgray;
+}
+
+.lightseagreen {
+  color: lightseagreen;
+}
+
+.seagreen {
+  color: seagreen;
+}
+
+.slategray {
+  color: slategray;
+}
+
+.steelblue {
+  color: steelblue;
+}
+
+.teal {
+  color: teal;
+}
+
+.fontSizeLarge {
+  font-size: 18px;
+}
+
+.fontSizeSmall {
+  font-size: 12px;
+}
+
+.fontSzieNormal {
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.capitalizeFirstLetter::first-letter {
+  text-transform: capitalize;
+}
+
+.centerH {
+  @include mixin.CENTER_H;
+}
+
+.centerV {
+  @include mixin.CENTER_H;
+}
+
+.centerHV {
+  @include mixin.CENTER_HV;
+}
+
+.flexStart {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.padding5 {
+  padding: 5px;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.borderRadius5 {
+  border-radius: 5px;
+}
+
+.directionColumn {
+  flex-direction: column;
+}
+
+.rtlDirection {
+  direction: rtl;
+}
+
+.ltrDirection {
+  direction: ltr;
+}
+
+.gap5 {
+  display: flex;
+  gap: 5px;
+}
+
+.link {
+  cursor: pointer;
+  color: darkblue;
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.onHoverUnderline:hover {
+
+    text-decoration: underline;
+  }
+}
+
+.center-content {
+  @include mixin.CENTER_H;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+
+  &.cardsMaxWdith,
+  &.cardMaxWidth {
+    max-width: var(--cardsMaxWidth);
+  }
+}
+
+.messages {
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+
+  &.warning {
+    color: orange;
+  }
+
+  &.centerText {
+    text-align: center;
+  }
+
+  &.boldText {
+    font-weight: bold;
+  }
+
+  &.minHeight100 {
+    min-height: 100px;
+  }
+
+}

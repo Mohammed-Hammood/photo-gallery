@@ -1,0 +1,243 @@
+@import 'mixins';
+
+@keyframes BUTTONS {
+    0% {
+        background-color: inherit;
+    }
+
+    10% {
+
+        background-color: red;
+    }
+
+    20% {
+        background-color: inherit;
+    }
+
+    30% {
+        background-color: teal;
+    }
+
+    40% {
+        background-color: inherit;
+    }
+
+    50% {
+
+        background-color: yellow;
+    }
+
+    60% {
+        background-color: inherit;
+    }
+
+    70% {
+        background-color: blue;
+    }
+
+    80% {
+        background-color: inherit;
+    }
+
+    90% {
+        background-color: skyblue;
+    }
+
+    100% {
+        background-color: inherit;
+    }
+}
+
+.app_header, .app_header_isOpen {
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    z-index: 102;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    .left-content,
+    .right-content {
+        height: 100%;
+        background-color: inherit;
+        @include CENTER_HV;
+
+        #btn-menue {
+            display: none;
+        }
+
+        div .sidebar-toggle-svg {
+            width: 11px;
+        }
+
+        .buttons:hover+.dropdown,
+        .buttons:focus+.dropdown,
+        .dropdown:focus-visible+.dropdown,
+        .dropdown:hover {
+            display: flex;
+        }
+
+        .leftDropdown {
+            left: 36px;
+        }
+
+        .rightDropdown {
+            right: 36px;
+        }
+
+        .dropdown {
+            position: absolute;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: inherit;
+            box-shadow: 0 0 10px white;
+            top: 40px;
+            border-radius: 6px;
+            height: auto;
+            overflow: hidden;
+            @include NO_SELECT;
+            min-width: 80px;
+            border: 1px solid rgba(lightgray, 0.5);
+
+            .dropdown-link:hover {
+                background: lightgray;
+                color: black;
+
+                svg path {
+                    fill: black;
+                }
+            }
+
+            .dropdown-link {
+                text-decoration: none;
+                font-size: 14px;
+                color: inherit;
+                width: 100%;
+                cursor: pointer;
+                @include CENTER_HV;
+                gap: 10px;
+                padding: 10px 15px;
+
+                svg {
+                    width: 14px;
+                }
+            }
+        }
+
+        .buttons {
+            padding: 0 20px;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+            min-width: 30px;
+            background: inherit;
+            @include NO_SELECT;
+            @include CENTER_HV;
+            text-decoration: none;
+            gap: 5px;
+            color: inherit;
+
+            #photo_gallery_logo_title {
+                font-size: 16px;
+            }
+
+             
+            .svg {
+                color: inherit;
+                width: 15px;
+                height: auto;
+            }
+        }
+
+
+        .buttons:active {
+            transform: translate3D(1px, 1px, 1px);
+        }
+
+        .buttons:hover {
+
+            animation: BUTTONS 4s linear infinite;
+        }
+
+    }
+}
+
+@media screen and (max-width:880px) {
+    .app_header, .app_header_isOpen {
+        flex-direction: column;
+        overflow: hidden;
+        font-size: 11px;
+
+        .right-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+
+            .dropdown {
+                position: inherit;
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .buttons {
+                width: 100%;
+                padding: 10px;
+                min-height: 50px;
+            }
+        }
+
+        .left-content {
+            width: 100%;
+            justify-content: space-between;
+            min-height: 50px;
+            height: 100%;
+
+            #HeaderLogo {
+                padding: 5px;
+
+                #photo_gallery_logo_title {
+                    font-size: 15px;
+                }
+            }
+
+            #btn-menue {
+                display: block;
+            }
+
+            .buttons {
+                width: 100%;
+                height: 50px;
+            }
+
+            .buttons:not(#HeaderLogo) {
+                max-width: 60px;
+            }
+        }
+    }
+
+    .app_header_isOpen {
+        height: auto;
+        animation: MobileResponsiveAnimation 1s linear;
+    }
+}
+
+@keyframes MobileResponsiveAnimation {
+    from {
+        height: 50px;
+    }
+
+    to {
+        height: 250px;
+    }
+}
