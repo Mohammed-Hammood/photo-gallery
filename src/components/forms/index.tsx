@@ -6,7 +6,6 @@ import ImagesFiltersForm from "./images/images-filters";
 import DarkLightModeForm from "./common/dark-light-mode";
 import {  ModalTypes } from 'libs/types'
 
-
  
 interface Props {
     modal: ModalTypes
