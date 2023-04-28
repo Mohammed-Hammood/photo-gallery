@@ -2,10 +2,9 @@ import React, { Suspense, useEffect, useState } from 'react';
 import {  FormsNames, ModalTypes } from 'libs/types';
 import { useTranslation } from 'react-i18next';
 import { Loader, SVG } from 'components';
-import Forms from 'components/forms';
 import 'styles/common/modal.scss';
 
-// const Forms = React.lazy(()=> import('../forms'));
+const Forms = React.lazy(()=> import('../forms'));
 
 
 interface Props {
