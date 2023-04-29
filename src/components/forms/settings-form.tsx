@@ -242,8 +242,8 @@ export default function SettingsForm(props: Props) {
                     </div>
                 </div>
             </> : null}
-            <div className='buttons-container'>
-                <button type='submit'>
+            <div className='buttons'>
+                <button type='submit' className="primary">
                     {t("Save")}
                 </button>
                 <button type='button' onClick={() => resetSettings()}>

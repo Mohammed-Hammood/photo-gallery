@@ -10,7 +10,7 @@ import 'styles/common/globals.scss';
 import 'translation/index';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('___root') as HTMLElement
 );
 
 

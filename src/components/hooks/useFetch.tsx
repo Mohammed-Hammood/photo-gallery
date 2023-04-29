@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useAppSelector, useAppDispatch } from 'store/hooks';
+import {  useAppDispatch } from 'store/hooks';
 import { setErrors } from 'store/slicers/errors';
 import { MethodTypes} from "libs/types";
 

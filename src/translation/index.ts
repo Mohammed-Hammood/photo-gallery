@@ -5,8 +5,8 @@ import Russian from './locales/russian.json'
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
 
 const resources = {
-    en: English,
-    ru: Russian,
+    english: English,
+    russian: Russian,
 }
 
 i18n
@@ -14,7 +14,7 @@ i18n
     .use(I18nextBrowserLanguageDetector)
     .init({
         resources,
-        fallbackLng: 'en',
+        fallbackLng: 'english',
         interpolation: {
             escapeValue: false
         }

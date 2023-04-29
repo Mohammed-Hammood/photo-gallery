@@ -6,7 +6,6 @@ import 'styles/common/modal.scss';
 
 const Forms = React.lazy(()=> import('../forms'));
 
-
 interface Props {
     form: FormsNames
     isVisible: boolean;

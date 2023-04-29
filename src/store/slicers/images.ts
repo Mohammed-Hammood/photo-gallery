@@ -30,9 +30,6 @@ const imagesSlicer = createSlice({
             state.images_count = actions.payload.images_count;
             state.selector_images = actions.payload.images;
         },
-        setSelectorImages(state, actions: PayloadAction<{ images: ImageTypes[] }>) {
-            state.selector_images = actions.payload.images;
-        },
         resetImagesFilters(state) {
             state.filters.category = 'all';
             state.filters.order = '-id';
@@ -45,9 +42,12 @@ const imagesSlicer = createSlice({
                 state.filters[key] = value;
             };
             changeParams(actions.payload.key, actions.payload.value);
+        },
+        setImagesFiltersTest(state, actions: PayloadAction<ImagesFiltersTypes>) {
+            state.filters = actions.payload;
         }
     }
 });
 
-export const { resetImagesFilters, setSelectorImages, setImages, setImagesFilters } = imagesSlicer.actions;
+export const { resetImagesFilters, setImages, setImagesFilters, setImagesFiltersTest } = imagesSlicer.actions;
 export default imagesSlicer.reducer;

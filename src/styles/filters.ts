@@ -2,9 +2,10 @@ import styled from "styled-components"
 
 export const FiltersWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    gap:10px;
+    justify-content: flex-start;
     flex-direction: column;
+    gap:10px;
+    width:100%;
     section {
         display: flex;
         justify-content: space-between;
@@ -32,10 +33,11 @@ export const FiltersWrapper = styled.div`
             width:100%;
             select,
             button,
+            .text,
             input {
                 padding: 5px 10px;
                 outline: none;
-                background-color: inherit;
+                background-color: white;
                 min-height: 35px;
                 height: 100%;
                 width: 100%;
@@ -50,6 +52,13 @@ export const FiltersWrapper = styled.div`
                     width: 14px;
                     height: 14px;
                 }
+            }
+            .text {
+                cursor: default;
+                width:100%;
+                color:black;
+                min-width: 100%;
+                user-select: none;
             }
             .contentCenter {
                 text-align: center;
@@ -90,6 +99,18 @@ export const FiltersWrapper = styled.div`
         button {
             border-radius: 5px;
             justify-content: center;
+            #ChangedCountWrapper {
+                background:red;
+                color:white;
+                font-size: var(--fontSize12);
+                border-radius:50%;
+                padding:1px;
+                width:20px;
+                height:20px;
+                display:flex;
+                justify-content: center;
+                align-items:center;
+            }
         }
     }
 `;

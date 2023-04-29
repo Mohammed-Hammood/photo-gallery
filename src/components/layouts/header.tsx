@@ -6,20 +6,15 @@ import { AppRoutes } from 'routes';
 import { setGlobalParams } from "store/slicers/global";
 import { Modal, SVG } from "components";
 import 'styles/common/header.scss';
+import { setImagesFilters } from "store/slicers/images";
+import { RootState } from "store/store";
+import { GlobalSettingsTypes } from "libs/types";
 
 type Props = {
-    global: {
-        header: {
-            [key: string]: string
-        }
-        sidebar: {
-            [key: string]: string
-        }
-    }
+    global: GlobalSettingsTypes;
     language: string
     t: (text: string) => string;
-    hideSidebar: () => void;
-    showSidebar: () => void;
+    showSearchModal: () => void;
 }
 
 interface State {
@@ -27,8 +22,6 @@ interface State {
     darkLightModeModal: boolean;
     languageModal: boolean;
     settingsModal: boolean;
-    searchModal: boolean;
-    query:string;
 }
 
 class Header extends React.Component<Props, State> {
@@ -36,19 +29,9 @@ class Header extends React.Component<Props, State> {
         super(props);
         this.state = {
             isOpen: false,
-            query:"",
             darkLightModeModal: false,
             languageModal: false,
-            searchModal: false,
             settingsModal: false,
-        }
-    }
-
-    sidebarToggle = (): void => {
-        if (this.props.global.sidebar.isVisible) {
-            this.props.hideSidebar();
-        } else {
-            this.props.showSidebar();
         }
     }
 
@@ -67,7 +50,7 @@ class Header extends React.Component<Props, State> {
         document.addEventListener('click', (e: MouseEvent) => this.headerCloser(e, this.state))
     }
     render() {
-        const { t } = this.props;
+        const { t, showSearchModal } = this.props;
         const { isOpen } = this.state;
         const { header } = this.props.global;
         return (
@@ -83,30 +66,26 @@ class Header extends React.Component<Props, State> {
                         </button>
                     </div>
                     <div className="right-content">
-                        <button type="button" className="buttons" onClick={() => this.setState({ searchModal: !this.state.searchModal })} title={t('Search')}>
+                        <button type="button" className="buttons" onClick={() => showSearchModal()} title={t('Search')}>
                             <SVG name="search" color={header.color} />
                         </button>
                         <button type="button" className='buttons' onClick={() => this.setState({ darkLightModeModal: true })} title={t('Dark-light mode')} id="header-darkLightMode-button">
                             <SVG name='circle-half-stroke' color={header.color} />
                         </button>
-                        <button type="button" className="buttons" onClick={() => this.setState({ languageModal: !this.state.languageModal })} title={t("Choose your language")}>
+                        <button type="button" className="buttons" onClick={() => this.setState({ languageModal: true })} title={t("Choose your language")}>
                             <SVG name='language' color={header.color} />
                         </button>
-                        <button type="button" className="buttons" onClick={() => this.setState({ settingsModal: !this.state.searchModal })} title={t("Settings")}>
+                        <button type="button" className="buttons" onClick={() => this.setState({ settingsModal: true })} title={t("Settings")}>
                             <SVG name='gear-solid' color={header.color} />
                         </button>
                     </div>
                 </header >
-                <Modal isVisible={this.state.searchModal}
-                    title="Search"
-                    setIsVisible={(value: boolean) => this.setState({ searchModal: value })}
-                    form="search"
-                    {...{query:this.state.query}}
-                />
+
                 <Modal isVisible={this.state.languageModal}
                     title="Choose your language"
                     setIsVisible={(value: boolean) => this.setState({ languageModal: value })}
                     form="translation"
+                    maxWidth={"maxWidth400"}
                 />
                 <Modal isVisible={this.state.settingsModal}
                     title="Settings"
@@ -114,7 +93,7 @@ class Header extends React.Component<Props, State> {
                     setIsVisible={(value: boolean) => this.setState({ settingsModal: value })}
                     form="settings"
                     border={"specialColor"}
-                    // fullScreen={true}
+                    fullScreen={true}
                     background={"bgNone"}
                 />
                 <Modal isVisible={this.state.darkLightModeModal}
@@ -122,24 +101,24 @@ class Header extends React.Component<Props, State> {
                     closeButton={true}
                     setIsVisible={(value: boolean) => this.setState({ darkLightModeModal: value })}
                     form="dark-light-mode"
-                // fullScreen={true}
+                    fullScreen={true}
                 />
             </>
         )
     }
 }
 
-function mapStateToProps(state: any, ownProps: { language: string }) {
+function mapStateToProps(state: RootState, ownProps: { language: string }) {
     return {
         global: state.global,
-        language: ownProps.language
+        language: ownProps.language,
     }
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
     setGlobalParams: () => dispatch(setGlobalParams({ param: "", key: "", value: "" })),
-    hideSidebar: () => dispatch(setGlobalParams({ param: "sidebar", key: "isVisible", value: false })),
-    showSidebar: () => dispatch(setGlobalParams({ param: "sidebar", key: "isVisible", value: true })),
+    setQuery: (query: string) => dispatch(setImagesFilters({ key: 'query', value: query })),
+    showSearchModal: () => dispatch(setGlobalParams({ param: "search", key: "isVisible", value: true }))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Header));

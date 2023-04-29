@@ -120,6 +120,7 @@ export default function Pagination(props: Props) {
                 title="Move to page"
                 setIsVisible={setPaginationModal}
                 isVisible={paginationModal}
+                maxWidth={"maxWidth500"}
                 {...{ page, setPage, totalPages: pageValues().totalPages }}
             />
         </>

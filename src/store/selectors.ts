@@ -1,6 +1,5 @@
-import { ErrorsTypes, } from "libs/types";
 import type { RootState } from "./store";
-import { ImagesInitialStateTypes } from "libs/types/images";
+import { ErrorsTypes,  ImagesInitialStateTypes } from "libs/types";
 
 
 export const selectGlobal = (state: RootState) => state.global;

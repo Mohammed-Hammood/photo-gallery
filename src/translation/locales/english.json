@@ -1,8 +1,10 @@
 {
-    "Explore.": "Explore",
-    "Filter_verb": "Filter",
-    "Per minute": "Minute",
-    "Search_name": "Search",
-    "Home": "Home",
-    "Home page":"Home"
+    "translation": {
+        "Explore.": "Explore",
+        "Filter_verb": "Filter",
+        "Per minute": "Minute",
+        "Search_name": "Search",
+        "Home": "Home",
+        "Home page": "Home"
+    }
 }

@@ -76,8 +76,8 @@ export default function TranslationForm(props: TranslationFormProps) {
                     </Button>
                 </div>
             </Container>
-            <div className='buttons-container'>
-                <button type='submit' ><span>{t('Choose')}</span></button>
+            <div className='buttons'>
+                <button type='submit' className="primary"><span>{t('Choose')}</span></button>
                 <button type='button' onClick={() => setIsVisible(false)}><span>{t('Close')}</span></button>
             </div>
         </form >

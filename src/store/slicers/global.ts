@@ -6,7 +6,12 @@ const initialState: GlobalSettingsTypes = {
     scrollToTop: {
         isVisible:true
     },
- 
+    filters: {
+        direction: "left",
+    },
+    search: {
+        isVisible: false,
+    },
     progressBar: {
         isVisible: true,
         backgroundColor: "red",

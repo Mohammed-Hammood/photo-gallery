@@ -10,7 +10,6 @@ interface Props {
     info?: boolean;
     slider?: boolean;
     setActiveImage: (image: ImageTypes | null) => void;
-    setUpdateImageModal?: ({ isVisible }: { isVisible: boolean, image?: ImageTypes }) => void;
 }
 
 interface WrapperProps {
@@ -157,7 +156,7 @@ const Wrapper = styled.div<WrapperProps>`
 }
 `
 export default function ImageMagnifier(props: Props) {
-    const { queryset, activeImage, setActiveImage, setUpdateImageModal } = props;
+    const { queryset, activeImage, setActiveImage  } = props;
     const { t: t_ } = useTranslation('translation');
     const t = (text: string): string => t_(text)
     const [background, setBackground] = useState<"blur" | "dark">("blur");
@@ -165,7 +164,6 @@ export default function ImageMagnifier(props: Props) {
     const [imageRotation, setImageRotation] = useState<number>(0);
     const [info, setInfo] = useState<boolean>(props.info !== undefined ? props.info : false);
     const [slider, setSlider] = useState<boolean>(props.slider !== undefined ? props.slider : true);
-    // const Authentication = useAppSelector(selectAuthentication);
     const handleImagesSlider = (action: "+" | "-"): void => {
         if (queryset) {
             const activeImageIndex = queryset.findIndex(({ id }) => id === activeImage?.id)
@@ -176,17 +174,7 @@ export default function ImageMagnifier(props: Props) {
             }
         }
     }
-    // const downloadImage = (): void => {
-    //     if (activeImage) {
-    //         const anchorEl = (document.createElement('a') as HTMLAnchorElement);
-    //         anchorEl.href = activeImage.cdn;
-    //         anchorEl.download = activeImage.title;
-    //         anchorEl.target = "__blank";
-    //         document.body.appendChild(anchorEl);
-    //         anchorEl.click();
-    //         anchorEl.remove();
-    //     }
-    // }
+
     useEffect(() => {
         const body = document.body as HTMLBodyElement;
         document.onkeydown = function (e) {

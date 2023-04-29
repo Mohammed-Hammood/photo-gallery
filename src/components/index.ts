@@ -6,7 +6,6 @@ import ProgressBar from "./layouts/progressbar";
 import Modal from "./modal";
 import SVG from "./shared/svg";
 import InputElement from "./elements/input-element";
-import ControlPanel from './shared/control-panel'
 import ImageMagnifier  from './shared/images-magnifier';
 import Loader from './shared/loader';
 import Pagination from './shared/pagination';
@@ -15,20 +14,23 @@ import ColorsOptions from "./shared/colors-options";
 import BackgroundColorsOptions from "./shared/background-colors-options";
 import TextareaElement from "./elements/textarea-element";
 import HelmetElement from "./shared/helmet";
+import Footer from "./layouts/footer";
+import Filters from "./layouts/filters";
 
 export {
     App,
     BackgroundColorsOptions,
     ColorsOptions,
     InputRangeElement,
+    Filters,
     useFetch,
     TextareaElement,
-    ControlPanel,
     InputElement,
     ImageMagnifier,
     Modal,
     Loader,
     Header,
+    Footer,
     Pagination,
     ScrollToTop,
     SVG,

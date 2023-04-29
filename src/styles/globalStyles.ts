@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle<Props>`
         border-bottom: 1px solid ${props => props.$global.footer.marginsColor ? props.$global.footer.marginsColor : 'red'};
     }
     main {
-        padding:15px 36px;
+        padding:10px ;
         height:100%;        
     }
     a {

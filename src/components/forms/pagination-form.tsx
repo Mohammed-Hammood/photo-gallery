@@ -25,12 +25,12 @@ export default function PaginationForm(props: Props) {
             <div>
                 {t("Total pages")} {totalPages}
             </div>
-            <div className='inputs-container ' id='name-container'>
+            <div className='section' id='name-container'>
                 <label htmlFor='input-page-number'> </label>
                 <input id="input-page-number" value={value} onChange={e => setValue((e.target as HTMLInputElement).valueAsNumber)} required className='inputs' maxLength={page} minLength={1} type='number' />
             </div>
-            <div className='buttons-container'>
-                <button type='submit'>
+            <div className='buttons'>
+                <button type='submit' className="primary">
                     {t("Move")}
                 </button>
                 <button type='button' onClick={() => setIsVisible(false)}>

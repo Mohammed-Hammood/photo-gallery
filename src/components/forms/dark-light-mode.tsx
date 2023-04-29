@@ -151,8 +151,8 @@ export default function DarkLightModeForm(props: Props): JSX.Element {
                     </div>
                 </div>
             </Wrapper>
-            <div className='buttons-container'>
-                <button type='submit'>{t("Save")}</button>
+            <div className='buttons'>
+                <button type='submit' className="primary">{t("Save")}</button>
                 <button type='button' onClick={() => reset()}>
                     {t("Reset")}
                 </button>
