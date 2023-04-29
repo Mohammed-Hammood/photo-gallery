@@ -25,6 +25,9 @@ export default function ImagesPage() {
     const { t } = useTranslation("translation");
     const [activeImage, setActiveImage] = useState<ImageTypes | null>(null);
     const dispatch = useAppDispatch();
+    const {limit, page } = filters;
+    const max = limit * page;
+    const min = (page - 1) * limit; 
     const { filters: { direction }, search: SeachModal } = useAppSelector(selectGlobal)
     const callback = ({ data: { images_count, images } }: CallbackProps): void => {
         dispatch(setImages({ images_count: images_count, images: images }));
@@ -34,8 +37,8 @@ export default function ImagesPage() {
 
     useEffect(() => {
         if (JSON.stringify(filters) !== JSON.stringify(filtersRef.current)) {
-            filtersRef.current = filters;
-            setUrl(url);
+            // filtersRef.current = filters;
+            // setUrl(url);
         }
     }, [filters, images, filtersRef, url, setUrl]);
 
@@ -62,7 +65,7 @@ export default function ImagesPage() {
                     />
                     : null}
                 <div className="images__wrapper">
-                    {images && images.filter(item => item.allowed_users === 'all').map((image, index: number) => {
+                    {images && images.filter(item => item.allowed_users === 'all').filter((item, index:number)=> index < max && index >= min).map((image, index: number) => {
                         return (
                             <div key={index} className="image">
                                 <img src={image.cdn} alt="" onClick={() => setActiveImage(image)} />
