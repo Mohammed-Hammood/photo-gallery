@@ -18,7 +18,7 @@ export const ImagesWrapper = styled.main`
     }
     .center-content {
         display:flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
         gap:10px;
         max-width: 1400px;
