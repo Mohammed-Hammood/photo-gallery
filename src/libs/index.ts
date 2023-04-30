@@ -1,4 +1,4 @@
-import { Endpoints } from "./contancts";
+import { Endpoints } from "./endpoints";
 import { Categories } from "./categories";
 export {
     Endpoints,
