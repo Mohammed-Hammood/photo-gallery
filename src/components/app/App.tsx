@@ -8,7 +8,6 @@ import { selectGlobal } from 'store/selectors';
 import {  useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'routes';
 
-
 function App() {
   const { i18n } = useTranslation();
   const global = useAppSelector(selectGlobal);
