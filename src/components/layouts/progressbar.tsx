@@ -24,7 +24,7 @@ interface Props {
     $bgColor: string
 }
 
-const ProgressBar: React.FC = (): JSX.Element | null => {
+export const ProgressBar: React.FC = (): JSX.Element | null => {
     const { isVisible, backgroundColor } = useAppSelector(state => state.global.progressBar);
     const [percentage, setPercentage] = useState<number>(0);
     useEffect(() => {
@@ -41,5 +41,3 @@ const ProgressBar: React.FC = (): JSX.Element | null => {
         <ProgressWrapper className='progess-bar' $percentage={percentage} $bgColor={backgroundColor}></ProgressWrapper>
     )
 }
-
-export default ProgressBar;

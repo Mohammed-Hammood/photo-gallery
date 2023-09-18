@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import SVG from "./svg";
+import { SVG } from "components";
 import styled from "styled-components";
 
 interface ButtonProps {
@@ -164,10 +164,10 @@ interface Props {
     buttons?: CustomButtonTypes[];
 
 }
-const ControlPanel: React.FC<Props> = (props: Props): JSX.Element => {
+export const ControlPanel: React.FC<Props> = (props: Props): JSX.Element => {
     const { buttons, order, setOrder, keyValue } = props;
-    const { t:t_ } = useTranslation('translation');
-    const t = (text:string):string => t_(text)
+    const { t: t_ } = useTranslation('translation');
+    const t = (text: string): string => t_(text)
 
     return (<>
         <Wrapper>
@@ -206,7 +206,7 @@ const ControlPanel: React.FC<Props> = (props: Props): JSX.Element => {
                             {item.key ?
                                 <div className="keyValue__wrapper_key">{typeof item.key === 'string' ? t(item.key) : item.key}</div>
                                 : null}
-                            <div className="keyValue__wrapper_value">{typeof item.value === 'string'? t(item.value): item.value}</div>
+                            <div className="keyValue__wrapper_value">{typeof item.value === 'string' ? t(item.value) : item.value}</div>
                         </div>
                     )
                 })
@@ -216,4 +216,3 @@ const ControlPanel: React.FC<Props> = (props: Props): JSX.Element => {
     </>
     )
 }
-export default ControlPanel;

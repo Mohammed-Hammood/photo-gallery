@@ -7,7 +7,8 @@ export default function Pages() {
     return (
         <>
             <Routes>
-                <Route path={AppRoutes.home} element={<HomePage />} />
+                <Route path={AppRoutes.home} element={<HomePage />} />,
+                <Route path={"*"} element={<HomePage />} />,
             </Routes>
         </>
     )

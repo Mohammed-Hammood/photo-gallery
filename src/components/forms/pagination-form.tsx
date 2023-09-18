@@ -5,10 +5,10 @@ interface Props {
     page: number;
     totalPages: number;
     setPage: (page: number) => void;
-    setIsVisible: (value: boolean) => void;
+    close: () => void ;
 }
 export default function PaginationForm(props: Props) {
-    const { totalPages, page, setPage, setIsVisible } = props;
+    const { totalPages, page, setPage, close } = props;
     const { t:t_ } = useTranslation('translation');
     const t = (text:string):string => t_(text)
     const [value, setValue] = useState<number>(page)
@@ -17,11 +17,11 @@ export default function PaginationForm(props: Props) {
         e.preventDefault();
         if (value >= 1 && value <= totalPages) {
             setPage(value);
-            setIsVisible(false);
+            close()
         }
     }
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className='container'>
+        <form onSubmit={handleSubmit} className='container'>
             <div>
                 {t("Total pages")} {totalPages}
             </div>
@@ -33,7 +33,7 @@ export default function PaginationForm(props: Props) {
                 <button type='submit' className="primary">
                     {t("Move")}
                 </button>
-                <button type='button' onClick={() => setIsVisible(false)}>
+                <button type='button' onClick={close}>
                     {t("Cancel")}
                 </button>
             </div>

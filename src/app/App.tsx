@@ -5,19 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'store/hooks';
 import Pages from 'pages';
 import { selectGlobal } from 'store/selectors';
-import {  useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'routes';
 
 function App() {
   const { i18n } = useTranslation();
   const global = useAppSelector(selectGlobal);
-  const navigate = useNavigate();
 
-  React.useEffect(() => {
-
-    if (window.location.pathname !== '/') return navigate(AppRoutes.home);
-    
-  }, [navigate])
   return (
     <>
       <HelmetElement />

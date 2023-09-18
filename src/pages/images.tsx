@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Filters, ImageMagnifier, Loader, Modal, Pagination } from "components";
+import { ImagesFilters, ImageMagnifier, Loader, Modal, Pagination } from "components";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setImages, setImagesFilters } from "store/slicers/images";
 import { ImageTypes } from "libs/types";
@@ -45,7 +45,7 @@ export default function ImagesPage() {
         <ImagesWrapper className="images-page" >
             {direction === 'left' ?
                 <div className={`left-content`}>
-                    <Filters />
+                    <ImagesFilters />
                 </div>
                 : null}
             <div className="center-content">
@@ -70,7 +70,7 @@ export default function ImagesPage() {
             </div>
             {direction === 'right' ?
                 <div className={`right-content`}>
-                    <Filters />
+                    <ImagesFilters />
                 </div>
                 : null}
         </ImagesWrapper>
@@ -79,9 +79,9 @@ export default function ImagesPage() {
             setActiveImage={setActiveImage}
             queryset={images}
         />
-        <Modal isVisible={SeachModal.isVisible}
+        <Modal isOpen={SeachModal.isVisible}
             title="Search"
-            setIsVisible={(value: boolean) => dispatch(setGlobalParams({ param: "search", key: "isVisible", value: value }))}
+            close={() => dispatch(setGlobalParams({ param: "search", key: "isVisible", value: false }))}
             form="search"
             closeButton={true}
         />

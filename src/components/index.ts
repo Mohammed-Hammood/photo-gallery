@@ -1,39 +1,17 @@
-import App from "./app/App";
-import useFetch from "./hooks/useFetch";
-import Header from "./layouts/header";
-import ScrollToTop from "./layouts/scroll-to-top";
-import ProgressBar from "./layouts/progressbar";
-import Modal from "./modal";
-import SVG from "./shared/svg";
-import InputElement from "./elements/input-element";
-import ImageMagnifier  from './shared/images-magnifier';
-import Loader from './shared/loader';
-import Pagination from './shared/pagination';
-import InputRangeElement from './elements/input-range-element';
-import ColorsOptions from "./shared/colors-options";
-import BackgroundColorsOptions from "./shared/background-colors-options";
-import TextareaElement from "./elements/textarea-element";
-import HelmetElement from "./shared/helmet";
-import Footer from "./layouts/footer";
-import Filters from "./layouts/filters";
-
-export {
-    App,
-    BackgroundColorsOptions,
-    ColorsOptions,
-    InputRangeElement,
-    Filters,
-    useFetch,
-    TextareaElement,
-    InputElement,
-    ImageMagnifier,
-    Modal,
-    Loader,
-    Header,
-    Footer,
-    Pagination,
-    ScrollToTop,
-    SVG,
-    ProgressBar,
-    HelmetElement,
-}
+export * from "./hooks/useFetch";
+export { default as Header } from "./layouts/header";
+export * from "./layouts/scroll-to-top";
+export * from "./layouts/progressbar";
+export * from "./modal";
+export * from "./shared/svg";
+export * from "./elements/input-element";
+export * from './shared/images-magnifier';
+export * from './shared/loader';
+export * from './shared/pagination';
+export * from './elements/input-range-element';
+export * from "./shared/colors-options";
+export * from "./shared/background-colors-options";
+export * from "./elements/textarea-element";
+export * from "./shared/helmet";
+export * from "./layouts/footer";
+export * from "./layouts/filters";

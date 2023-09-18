@@ -92,7 +92,7 @@ interface Props {
     clearButtonMaxHeight?: string;
     clearButtonMargin?: string;
 }
-export default function InputRangeElement(props: Props): JSX.Element {
+export function InputRangeElement(props: Props): JSX.Element {
     const { value, labelInnerText, title,  required } = props;
     const inputID = React.useId();
     const buttonID = React.useId();

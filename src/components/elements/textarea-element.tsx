@@ -29,7 +29,7 @@ interface Props {
     minLength?: number;
     onChange?:(value:string)=> void;
 }
-export default function TextareaElement(props: Props): JSX.Element {
+export function TextareaElement(props: Props): JSX.Element {
     const { value, labelInnerText, title, placeholder } = props;
     const textareaId = React.useId();
     const { t:t_ } = useTranslation("translation");

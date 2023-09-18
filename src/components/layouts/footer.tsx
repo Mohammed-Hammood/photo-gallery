@@ -21,7 +21,7 @@ const FooterWrapper = styled.footer`
     }
  
 `
-function Footer():JSX.Element {
+export function Footer():JSX.Element {
     const { t } = useTranslation("translation");
 
     return (
@@ -31,5 +31,3 @@ function Footer():JSX.Element {
             </div>
         </FooterWrapper>)
 }
-
-export default Footer;

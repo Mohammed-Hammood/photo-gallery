@@ -13,8 +13,8 @@ export interface ImageTypes {
     cdn: string;
     allowed_users: ImageAllowedUsersTypes;
     timestamp: string;
-    category: string;
     description?: string;
+    category: string;
     tags: TagsTypes[];
 }
 
@@ -81,7 +81,6 @@ export interface ErrorsTypes {
     statusText?: string;
     type?:string;
 }
-
 
 export interface ModalTypes {
     form: FormsNames;

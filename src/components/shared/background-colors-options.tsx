@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const BackgroundColorsOptions = (): JSX.Element => {
+export const BackgroundColorsOptions = (): JSX.Element => {
     const {t:t_} = useTranslation('translation');
     const t = (text:string):string => t_(text)
 
@@ -23,4 +23,3 @@ const BackgroundColorsOptions = (): JSX.Element => {
         <option value="bgYellow" >{t("Yellow")}</option>
     </>)
 }
-export default BackgroundColorsOptions;

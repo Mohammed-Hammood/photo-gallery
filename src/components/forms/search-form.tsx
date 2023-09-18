@@ -6,29 +6,29 @@ import { selectImages } from "store/selectors";
 import { setImagesFilters } from "store/slicers/images";
 
 interface Props {
-    setIsVisible: (value: boolean) => void;
+    close: () => void;
 }
 
-export default function SearchForm(props: Props): JSX.Element {
-    const { setIsVisible } = props;
+export default function SearchForm({ close }: Props): JSX.Element {
     const { filters: { query } } = useAppSelector(selectImages);
     const dispatch = useAppDispatch();
     const [inputValue, setInputValue] = useState<string>(query);
     const { t: t_ } = useTranslation('translation');
     const t = (text: string): string => t_(text);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         if (inputValue.trim().length > 0) {
             dispatch(setImagesFilters({ key: 'query', value: inputValue }));
-            setIsVisible(false);
+            close()
         }
     }
     const clearSearch = (): void => {
         dispatch(setImagesFilters({ key: 'query', value: '' }));
-        setIsVisible(false);
+        close()
     }
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className='container'>
+        <form onSubmit={handleSubmit} className='container'>
             <div className='section'  >
                 <label htmlFor='input-contact-search'> </label>
                 <InputElement

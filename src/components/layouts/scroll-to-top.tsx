@@ -51,7 +51,7 @@ const ScrollerDiv = styled.div<Props>`
     }
 
 `
-function ScrollToTop() {
+export function ScrollToTop() {
     const max = 400;
     const visibility = useAppSelector(state => state.global.scrollToTop.isVisible);
     const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -79,5 +79,3 @@ function ScrollToTop() {
             <SVG name='angles-up' color="black" />
         </ScrollerDiv>)
 }
-
-export default ScrollToTop

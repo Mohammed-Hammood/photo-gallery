@@ -4,7 +4,7 @@ import errorsSlicer from './slicers/errors'
 import imagesSlicer from './slicers/images';
 
 
-export const store = configureStore({
+ const store = configureStore({
     reducer:{
         global:globalSlicer,
         images:imagesSlicer,
@@ -17,3 +17,5 @@ export type RootState = ReturnType<typeof store.getState>
 
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+
+export default store;

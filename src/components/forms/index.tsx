@@ -11,19 +11,15 @@ interface Props {
     props: any
 }
 
-type FormsTypes = {
-    [key in FormsNames]: JSX.Element;
-}
-
-export default function Forms(props: Props): JSX.Element | null {
+export default function Forms(props: Props): JSX.Element {
     const { form } = props.modal;
-    const forms: FormsTypes = {
+
+    const forms: Record<FormsNames, JSX.Element> = {
         "search": <SearchForm {...props.props} setModal={props.setModal} modal={props.modal} />,
         "pagination": <PaginationForm {...props.props} setModal={props.setModal} modal={props.modal} />,
         "translation": <TranslationForm {...props.props} setModal={props.setModal} modal={props.modal} />,
         "settings": <SettingsForm {...props.props} setModal={props.setModal} modal={props.modal} />,
         "dark-light-mode": <DarkLightModeForm {...props.props} setModal={props.setModal} modal={props.modal} />,
     }
-    if (forms && forms.hasOwnProperty(form)) return forms[form];
-    return null;
+    return forms[form];
 }

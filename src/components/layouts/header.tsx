@@ -7,7 +7,7 @@ import { setGlobalParams } from "store/slicers/global";
 import { Modal, SVG } from "components";
 import 'styles/common/header.scss';
 import { setImagesFilters } from "store/slicers/images";
-import { RootState } from "store/store";
+import { RootState } from "store";
 import { GlobalSettingsTypes } from "libs/types";
 
 type Props = {
@@ -81,25 +81,25 @@ class Header extends React.Component<Props, State> {
                     </div>
                 </header >
 
-                <Modal isVisible={this.state.languageModal}
+                <Modal isOpen={this.state.languageModal}
                     title="Choose your language"
-                    setIsVisible={(value: boolean) => this.setState({ languageModal: value })}
+                    close={() => this.setState({ languageModal: false })}
                     form="translation"
                     maxWidth={"maxWidth400"}
                 />
-                <Modal isVisible={this.state.settingsModal}
+                <Modal isOpen={this.state.settingsModal}
                     title="Settings"
                     closeButton={true}
-                    setIsVisible={(value: boolean) => this.setState({ settingsModal: value })}
+                    close={() => this.setState({ settingsModal: false})}
                     form="settings"
                     border={"specialColor"}
                     fullScreen={true}
                     background={"bgNone"}
                 />
-                <Modal isVisible={this.state.darkLightModeModal}
+                <Modal isOpen={this.state.darkLightModeModal}
                     title="Dark light mode"
                     closeButton={true}
-                    setIsVisible={(value: boolean) => this.setState({ darkLightModeModal: value })}
+                    close={() => this.setState({ darkLightModeModal: false})}
                     form="dark-light-mode"
                     fullScreen={true}
                 />

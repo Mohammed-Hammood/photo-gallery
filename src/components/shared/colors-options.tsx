@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ColorsOptions = (): JSX.Element => {
+export const ColorsOptions = (): JSX.Element => {
     const { t:t_ } = useTranslation('translation')
     const t = (text:string):string => t_(text)
 
@@ -31,4 +31,3 @@ const ColorsOptions = (): JSX.Element => {
         <option value="teal">{t("Teal")}</option>
     </>)
 }
-export default ColorsOptions;

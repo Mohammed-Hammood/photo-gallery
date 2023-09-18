@@ -2,6 +2,7 @@ import { InputRangeElement } from "components";
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from "store/hooks";
+import { selectGlobal } from "store/selectors";
 import { setGlobalParams } from "store/slicers/global";
 import styled from "styled-components";
 
@@ -62,15 +63,14 @@ const Wrapper = styled.div<WrapperTypes>`
 
 `
 interface Props {
-    setIsVisible: (value: boolean) => void;
+    close: () => void;
 }
-export default function DarkLightModeForm(props: Props): JSX.Element {
-    const { setIsVisible } = props;
-    const body = useAppSelector(state => state.global.body);
+export default function DarkLightModeForm({ close }: Props): JSX.Element {
+    const { body } = useAppSelector(selectGlobal);
     const [backgroundColor, setBackgroundColor] = useState<number[]>(body.backgroundColor);
     const [opacity, setOpacity] = useState<number>(body.opacity);
-    const { t:t_ } = useTranslation('translation');
-    const t = (text:string):string => t_(text)
+    const { t: t_ } = useTranslation('translation');
+    const t = (text: string): string => t_(text)
     const redIndex = 0;
     const greenIndex = 1;
     const blueIndex = 2;
@@ -79,7 +79,7 @@ export default function DarkLightModeForm(props: Props): JSX.Element {
         e.preventDefault();
         dispatch(setGlobalParams({ param: "body", key: "backgroundColor", value: backgroundColor }));
         dispatch(setGlobalParams({ param: "body", key: "opacity", value: opacity }));
-        setIsVisible(false);
+        close()
     }
     const reset = (): void => {
         setBackgroundColor([0, 0, 0]);
@@ -93,7 +93,7 @@ export default function DarkLightModeForm(props: Props): JSX.Element {
         setBackgroundColor(newColors);
     }
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className='container'>
+        <form onSubmit={handleSubmit} className='container'>
             <Wrapper $backgroundColor={backgroundColor.toString()} $opacity={(opacity / 100).toString()}>
                 <div className={'demonstration '}></div>
                 <div className="rgb_colors_wrapper" >
@@ -153,7 +153,7 @@ export default function DarkLightModeForm(props: Props): JSX.Element {
             </Wrapper>
             <div className='buttons'>
                 <button type='submit' className="primary">{t("Save")}</button>
-                <button type='button' onClick={() => reset()}>
+                <button type='button' onClick={reset}>
                     {t("Reset")}
                 </button>
             </div>

@@ -50,7 +50,7 @@ const LoaderWrapper = styled.div<Props>`
         }
     }
 `;
-export default function Loader(props: Props) {
+export function Loader(props: Props) {
     const { size, borderWidth, height, margin, backgroundColor, borderColor, topBorderColor, position, minHeight, borderRadius, justifyContent } = props;
     const border_color: string = borderColor || "blue";
     const background_color: string = backgroundColor || "inherit";

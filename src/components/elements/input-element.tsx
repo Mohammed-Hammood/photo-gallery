@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import SVG from "../shared/svg";
+import { SVG } from "components";
 interface WrapperProps {
     $buttonID: string;
     $minHeight?: string;
@@ -84,14 +84,14 @@ interface Props {
     minHeight?: string;
     clearButtonMaxHeight?: string;
     clearButtonMargin?: string;
-    className?:string;
+    className?: string;
 }
-export default function InputElement(props: Props): JSX.Element {
+export function InputElement(props: Props): JSX.Element {
     const { value, labelInnerText, title, placeholder, required } = props;
     const inputID = React.useId();
     const buttonID = React.useId();
-    const { t:t_ } = useTranslation('translation');
-    const t = (text:string):string => t_(text)
+    const { t: t_ } = useTranslation('translation');
+    const t = (text: string): string => t_(text)
     const maxLength = props.maxLength !== undefined ? props.maxLength : 100;
     const minLength = props.minLength !== undefined ? props.minLength : 0;
     const type = props.type || "text";
@@ -127,7 +127,7 @@ export default function InputElement(props: Props): JSX.Element {
                     required={required}
                     className={className}
                     minLength={minLength}
-                    onKeyDown={(e)=> onKeyDwon((e.target as HTMLInputElement))}
+                    onKeyDown={(e) => onKeyDwon((e.target as HTMLInputElement))}
                     value={value}
                     placeholder={t(placeholder || '')}
                     onInput={(e) => onInput((e.target as HTMLInputElement).value)}

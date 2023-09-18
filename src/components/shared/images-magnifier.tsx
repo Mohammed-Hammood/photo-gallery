@@ -155,8 +155,8 @@ const Wrapper = styled.div<WrapperProps>`
     }
 }
 `
-export default function ImageMagnifier(props: Props) {
-    const { queryset, activeImage, setActiveImage  } = props;
+export function ImageMagnifier(props: Props) {
+    const { queryset, activeImage, setActiveImage } = props;
     const { t: t_ } = useTranslation('translation');
     const t = (text: string): string => t_(text)
     const [background, setBackground] = useState<"blur" | "dark">("blur");
@@ -214,9 +214,8 @@ export default function ImageMagnifier(props: Props) {
             image.scrollIntoView();
         }
     }, [activeImage, imageWidth, setActiveImage, queryset]);
-    if (!activeImage) return null;
-    return (
-        <Wrapper imageWidth={imageWidth} $rotation={imageRotation}>
+    if (activeImage)
+        return (<Wrapper imageWidth={imageWidth} $rotation={imageRotation}>
             <section className={"images-slider " + background} id="images-slider-wrapper">
                 <img alt="" src={activeImage.cdn} onClick={() => { setActiveImage(null); document.body.style.overflowY = 'auto'; }} />
                 {queryset && slider ?
@@ -292,4 +291,5 @@ export default function ImageMagnifier(props: Props) {
                 </div>
             </section>
         </Wrapper>)
+    return null;
 }

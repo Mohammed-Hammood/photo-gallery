@@ -46,18 +46,18 @@ const Form = styled.form`
 `;
 
 interface Props {
-    setIsVisible: (value: boolean) => void;
+    close: () => void;
 }
-export default function SettingsForm(props: Props) {
-    const { setIsVisible } = props;
-    const { t:t_ } = useTranslation('translation');
-    const t = (text:string):string => t_(text)
+export default function SettingsForm({ close }: Props) {
+    const { t: t_ } = useTranslation('translation');
+    const t = (text: string): string => t_(text)
     const global = useAppSelector(state => state.global);
     const dispatch = useAppDispatch();
     const [active, setActive] = useState<"header" | "general" | "footer" | "sidebar">("general")
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsVisible(false);
+        close()
     }
     const resetSettings = (): void => {
         dispatch(setGlobalParams({ param: "body", key: "fontFamily", value: "times new roman" }));
@@ -75,7 +75,7 @@ export default function SettingsForm(props: Props) {
     }
 
     return (
-        <Form onSubmit={(e) => handleSubmit(e)} className='container'>
+        <Form onSubmit={handleSubmit} className='container'>
             <div className="row-content">
                 <div className="second-content flexRow">
                     <button type="button" className={active === "general" ? "active" : ""} onClick={() => setActive('general')} title={t("General")}>{t("General")}</button>
@@ -94,7 +94,7 @@ export default function SettingsForm(props: Props) {
                         </button>
                     </div>
                 </div>
-                
+
                 <div className="row-content">
                     <div className="first-content">
                         <span>{t("Font family")}</span>
@@ -246,7 +246,7 @@ export default function SettingsForm(props: Props) {
                 <button type='submit' className="primary">
                     {t("Save")}
                 </button>
-                <button type='button' onClick={() => resetSettings()}>
+                <button type='button' onClick={resetSettings}>
                     {t("Reset settings")}
                 </button>
             </div>

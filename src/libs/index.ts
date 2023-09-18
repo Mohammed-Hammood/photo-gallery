@@ -1,6 +1,2 @@
-import { Endpoints } from "./endpoints";
-import { Categories } from "./categories";
-export {
-    Endpoints,
-    Categories,
-}
+export * from "./endpoints";
+export * from "./categories";

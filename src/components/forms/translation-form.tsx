@@ -49,27 +49,27 @@ const Button = styled.button<Props>`
     }
 `
 interface TranslationFormProps {
-    setIsVisible: (value: boolean) => void;
+    close: () => void;
 }
-export default function TranslationForm(props: TranslationFormProps) {
-    const { setIsVisible } = props;
+export default function TranslationForm({ close }: TranslationFormProps) {
     const { t: t_, i18n } = useTranslation('translation');
     const t = (text: string): string => t_(text)
     const [selectedLanguage, setSelectedLanguage] = useState<string>(i18n.language);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         i18n.changeLanguage(selectedLanguage)
-        setIsVisible(false);
+        close()
     }
     return (
-        <form onSubmit={(e) => handleSubmit(e)} className='container'>
+        <form onSubmit={handleSubmit} className='container'>
             <Container className='text-container'>
                 <div className="content">
                     <Button title="Русский" $selectedLanguage={selectedLanguage === 'russian' ? true : false} type="button" onClick={() => setSelectedLanguage('russian')}>
                         <SVG color="black" name="flag-russia" />
                         <span>{t('Russian')}</span>
                     </Button>
-                    
+
                     <Button title="English" $selectedLanguage={selectedLanguage === 'english' ? true : false} type="button" onClick={() => setSelectedLanguage('english')}>
                         <SVG color="black" name="flag-united-kingdom" />
                         {t('English')}
@@ -78,7 +78,7 @@ export default function TranslationForm(props: TranslationFormProps) {
             </Container>
             <div className='buttons'>
                 <button type='submit' className="primary"><span>{t('Choose')}</span></button>
-                <button type='button' onClick={() => setIsVisible(false)}><span>{t('Close')}</span></button>
+                <button type='button' onClick={close}><span>{t('Close')}</span></button>
             </div>
         </form >
     )

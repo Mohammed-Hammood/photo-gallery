@@ -9,8 +9,7 @@ import { selectImages } from "store/selectors";
 import { setGlobalParams } from "store/slicers/global";
 
 
-
-export default function ImagesFilters(): JSX.Element {
+export function ImagesFilters(): JSX.Element {
     const { t: t_ } = useTranslation('translation');
     const t = (text: string): string => t_(text);
     const { filters, images_count } = useAppSelector(selectImages);
@@ -103,7 +102,7 @@ export default function ImagesFilters(): JSX.Element {
             </section>
             <section>
                 <div className="controllers__wrapper">
-                    <button type="button" onClick={() => resetFilters()}>
+                    <button type="button" onClick={resetFilters}>
                         {t("Reset filters")}
                         {changedFiltersCount() ?
                             <span id="ChangedCountWrapper">{changedFiltersCount()}</span>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
-const HelmetElement = () => {
+export const HelmetElement = () => {
     const { t:t_ } = useTranslation('translation');
     const t = (text:string):string => t_(text)
 
@@ -15,5 +15,3 @@ const HelmetElement = () => {
     )
 }
 
-
-export default HelmetElement;

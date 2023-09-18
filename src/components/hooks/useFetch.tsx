@@ -20,7 +20,7 @@ type Props = {
     loading?: boolean;
     method?:MethodTypes;
 };
-function useFetch(props: Props) {
+export function useFetch(props: Props) {
     const [loading, setLoading] = useState<boolean>(props.loading !== undefined ? props.loading : false);
     const [callback, setCallback] = useState<((value:any)=> void) | null >(()=> props.callback || null );
     const [message, setMessage] = useState<null | { status: number, message: string }>(null)
@@ -84,4 +84,3 @@ function useFetch(props: Props) {
         setCallback,
     }
 }
-export default useFetch;

@@ -50,7 +50,7 @@ interface Props {
     setPage: (pageNumber: number) => void;
 }
 
-export default function Pagination(props: Props) {
+export function Pagination(props: Props) {
     const [paginationModal, setPaginationModal] = useState<boolean>(false);
     const { queryset, totalCount, page, limit, setPage } = props;
     const { t:t_, i18n } = useTranslation('translation');
@@ -118,8 +118,8 @@ export default function Pagination(props: Props) {
             <Modal
                 form="pagination"
                 title="Move to page"
-                setIsVisible={setPaginationModal}
-                isVisible={paginationModal}
+                close={()=> setPaginationModal(false)}
+                isOpen={paginationModal}
                 maxWidth={"maxWidth500"}
                 {...{ page, setPage, totalPages: pageValues().totalPages }}
             />

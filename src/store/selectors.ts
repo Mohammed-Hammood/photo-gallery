@@ -1,4 +1,4 @@
-import type { RootState } from "./store";
+import type { RootState } from ".";
 import { ErrorsTypes, ImageTypes, ImagesInitialStateTypes } from "libs/types";
 
 
