@@ -1,7 +1,6 @@
 # Photo gallery
 - `Stack` React, NodeJs, Sass, Webpack
 - 
-
 # Getting Started with Create React App
 
 
