@@ -1,6 +1,6 @@
 # Photo gallery
 ## Stack
-`Stack`, `React`, `NodeJs`, `Sass`, `Webpack`
+`Stack`, `React`, `NodeJs`, `Sass`, `Webpack`, `Redus/toolkit`
 
 # Getting Started with Create React App
 
