@@ -1,6 +1,6 @@
 # Photo gallery
 ## Stack
-`React`, `NodeJs`, `Sass`, `Webpack`, `Redux/toolkit`, `styled-components`, `i18next`
+`React`, `NodeJs`, `Sass`, `Webpack`, `Redux/toolkit`, `styled-components`, `i18next`,  `TypeScript`
 
 # Getting Started with Create React App
 
